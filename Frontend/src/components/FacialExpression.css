@@ -1,0 +1,62 @@
+.mood-element {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  padding: 4rem;
+}
+ 
+.mood-element button {
+  position: relative;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.6rem;
+  border: none;
+  color: white;
+  background-color: orangered;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease;
+}
+
+.mood-element button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(to right, white, #f5f5f5);
+  z-index: -1;
+  transition: width 0.5s ease-in-out;
+}
+
+.mood-element button:hover::before {
+  width: 100%;
+}
+
+.mood-element button:hover {
+  color: orangered;
+  transform: translateY(-2px); 
+}
+
+.mood-element button:active {
+  transform: scale(0.95);
+}
+
+.user-video-feed {
+  width: 20rem;
+  aspect-ratio: 16/9;
+  border-radius: 1rem;
+  object-fit: cover;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+
+.user-video-feed:hover {
+  transform: scale(1.02);
+}
