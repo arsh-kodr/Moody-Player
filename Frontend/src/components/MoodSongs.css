@@ -1,44 +1,65 @@
 .mood-songs {
   width: 100%;
-  padding: 4rem;
+  padding: 3rem;
   padding-top: 0;
   color: white;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* Match background theme with FacialExpression */
+  background: radial-gradient(circle at top, rgba(255,69,0,0.15), rgba(0,0,0,0.9));
 }
 
+/* Heading */
 .mood-songs h2 {
   margin-bottom: 2rem;
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 700;
-  letter-spacing: 1px;
-  background: linear-gradient(to right, orangered, #ff6b6b);
+  background: linear-gradient(to right, #ff512f, #dd2476);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  letter-spacing: 1px;
+  animation: slideDown 0.6s ease;
+  text-align: center;
 }
 
+/* Song Card (Glassmorphism style) */
 .song {
+  width: 100%;
+  max-width: 40rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.2rem 1.5rem;
-  border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.05);
-  margin-bottom: 1rem;
-  backdrop-filter: blur(6px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  padding: 1.3rem 1.6rem;
+  border-radius: 1.2rem;
+
+  /* Glass effect */
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  margin-bottom: 1.2rem;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+
   transform: translateY(0);
-  transition: all 0.3s ease;
+  transition: all 0.35s ease;
   cursor: pointer;
+  opacity: 0;
 }
 
 .song:hover {
-  background: rgba(255, 255, 255, 0.1);
-  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 16px 32px rgba(255, 69, 0, 0.35);
 }
 
+/* Title Styling */
 .title h3 {
   margin: 0;
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   font-weight: 600;
   transition: color 0.3s ease;
 }
@@ -51,39 +72,57 @@
 }
 
 .song:hover .title h3 {
-  color: orangered;
+  color: #ff512f;
 }
 
 .song:hover .title p {
   opacity: 1;
 }
 
-.play-pause-button {
-  display: flex;
-  align-items: center;
-  font-size: 1.8rem;
+/* Play/Pause Button */
+.play-pause-button button {
+  background: none;
+  border: none;
+  font-size: 2rem;
   color: #fff;
-  transition: transform 0.2s ease, color 0.3s ease;
+  cursor: pointer;
+  transition: transform 0.25s ease, color 0.3s ease;
 }
 
-.play-pause-button i {
-  margin-left: 0.5rem;
-  cursor: pointer;
+.play-pause-button button:hover {
+  transform: scale(1.2);
+  color: #ff512f;
+}
+
+/* Active State */
+.active-icon {
+  color: #ff512f;
+  transform: scale(1.15);
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.play-pause-button i:hover {
-  color: orangered;
-  transform: scale(1.2);
-}
-
-/* Pulse animation for play button */
-.play-pause-button i.ri-play-circle-fill {
+/* Pulse Animation */
+.pulse {
   animation: pulse 1.8s infinite;
 }
 
 @keyframes pulse {
   0% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.15); opacity: 0.8; }
+  50% { transform: scale(1.15); opacity: 0.85; }
   100% { transform: scale(1); opacity: 1; }
+}
+
+/* Entry Animation */
+.fade-in {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  0% { transform: translateY(-10px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
 }
