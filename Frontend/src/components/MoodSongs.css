@@ -1,14 +1,13 @@
 .mood-songs {
   width: 100%;
   padding: 3rem;
-  padding-top: 0;
+  padding-top: 1rem;
   color: white;
   font-family: 'Inter', sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  /* Match background theme with FacialExpression */
+  border-radius: 1rem;
   background: radial-gradient(circle at top, rgba(255,69,0,0.15), rgba(0,0,0,0.9));
 }
 

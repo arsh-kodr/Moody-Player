@@ -38,4 +38,8 @@ router.get("/songs" , async (req, res) => {
     })
 })
 
+router.get("*name" , (req , res) => {
+   
+} )
+
 module.exports = router;

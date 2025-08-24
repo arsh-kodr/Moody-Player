@@ -1,21 +1,19 @@
-import React, { useState } from 'react'
-import FacialExpression from './components/FacialExpression'
-import MoodSongs from './components/MoodSongs'
-import './App.css'
+import React, { useState } from 'react';
+import FacialExpression from './components/FacialExpression';
+import MoodSongs from './components/MoodSongs';
+import './App.css';  // new CSS file
 
 const App = () => {
   const [songs, setSongs] = useState([]);
 
   return (
     <div className="app">
-      <div className="section">
+      <div className="mood-layout">
         <FacialExpression setSongs={setSongs} />
-      </div>
-      <div className="section">
         <MoodSongs songs={songs} />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
